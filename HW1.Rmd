@@ -1,0 +1,19 @@
+
+install.packages("dplyr")
+library(dplyr)
+cubs <- read.csv("https://raw.githubusercontent.com/gjm112/DSCI101/main/data/cubs_all_time.csv")
+cubWin <- sum(cubs$W)
+cubLoss <- sum(cubs$L)
+cubsTotalWL <- cubWin + cubLoss
+print(cubs) 
+print(cubLoss) 
+print(cubsTotalWL) 
+cubsRuns <- select(cubs,c(R,Year))
+cubsRuns <- cubsRuns[order(cubs$R),]
+cubsRuns[1,]
+
+cubsSeasons <- cubs %>% select(Attendance, Year) %>% filter(Attendance > 3000000)
+cubsSeasons
+
+
+
